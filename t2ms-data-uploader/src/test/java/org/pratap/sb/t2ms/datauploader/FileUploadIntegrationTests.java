@@ -37,7 +37,7 @@ public class FileUploadIntegrationTests {
 
     @Test
     public void shouldUploadFile() throws Exception {
-        ClassPathResource resource = new ClassPathResource("testupload.txt", getClass());
+        ClassPathResource resource = new ClassPathResource("testupload.txt");
 
         MultiValueMap<String, Object> map = new LinkedMultiValueMap<String, Object>();
         map.add("file", resource);
@@ -50,7 +50,7 @@ public class FileUploadIntegrationTests {
 
     @Test
     public void shouldDownloadFile() throws Exception {
-        ClassPathResource resource = new ClassPathResource("testupload.txt", getClass());
+        ClassPathResource resource = new ClassPathResource("testupload.txt");
         given(this.storageService.loadAsResource("testupload.txt")).willReturn(resource);
 
         ResponseEntity<String> response = this.restTemplate
